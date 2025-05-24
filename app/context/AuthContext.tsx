@@ -10,7 +10,8 @@ interface Authprops {
 }
 
 const TOKEN_KEY = "my_jwt";
-export const API_URL = "https://api.developbetterapps.com";
+// export const API_URL = "https://api.developbetterapps.com";
+export const API_URL = "http://5000";
 const AuthContext = createContext<Authprops>({});
 
 export const useAuth = () => {
@@ -70,7 +71,7 @@ export const AuthProvider = ({ children }: any) => {
 
       return result;
     } catch (e) {
-      return { error: true, msg: (e as any).respose.data.msg };
+      return { error: true, msg: (e as any).response.data.msg };
     }
   };
 
