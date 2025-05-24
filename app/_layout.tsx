@@ -1,9 +1,10 @@
 import { useFonts } from "expo-font";
-import { SplashScreen, Stack } from "expo-router";
+import { Slot, SplashScreen } from "expo-router";
 import { useEffect } from "react";
+import { AuthProvider } from "./context/AuthContext";
 import "./global.css";
 
-export default function RootLayout() {
+export default function Root() {
   const [fontsLoaded] = useFonts({
     "Satoshi-Black": require("../assets/fonts/Satoshi-Black.otf"),
     "Satoshi-Bold": require("../assets/fonts/Satoshi-Bold.otf"),
@@ -21,10 +22,8 @@ export default function RootLayout() {
   if (!fontsLoaded) return null;
 
   return (
-    <Stack
-      screenOptions={{
-        headerShown: false,
-      }}
-    />
+    <AuthProvider>
+      <Slot />
+    </AuthProvider>
   );
 }

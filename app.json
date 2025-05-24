@@ -1,17 +1,17 @@
 {
   "expo": {
-    "name": "real-estate",
-    "slug": "real-estate",
+    "name": "paypoint",
+    "slug": "paypoint",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "realestate",
+    "icon": "./assets/images/greencheck.png",
+    "scheme": "paypoint",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
-    "image": "./assets/images/splashbg.png",
-    "resizeMode": "cover",
-    "backgroundColor": "#ffffff"
+      "image": "./assets/images/splashbg.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#ffffff"
     },
     "ios": {
       "supportsTablet": true
@@ -40,7 +40,7 @@
         }
       ],
       [
-        "expo-font", 
+        "expo-font",
         {
           "fonts": [
             "./assets/fonts/Satoshi-Black.otf",
@@ -50,7 +50,15 @@
             "./assets/fonts/Satoshi-Regular.otf"
           ]
         }
+      ],      
+      [
+        "expo-secure-store",
+        {
+          "configureAndroidBackup": true,
+          "faceIDPermission": "Allow $(PRODUCT_NAME) to access your Face ID biometric data."
+        }
       ]
+
     ],
     "experiments": {
       "typedRoutes": true

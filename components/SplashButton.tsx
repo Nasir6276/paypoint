@@ -1,3 +1,4 @@
+import { useRouter } from "expo-router";
 import React from "react";
 import { FlatList, TouchableWithoutFeedback, View } from "react-native";
 import Animated, {
@@ -17,9 +18,10 @@ const SplashButton = ({
   flatListIndex,
   dataLength,
 }: SplashButtonProps) => {
+  const router = useRouter();
   const buttonAnimationStyle = useAnimatedStyle(() => {
     return {
-      height: 40,
+      height: 44,
       marginBottom: 20,
     };
   });
@@ -57,6 +59,7 @@ const SplashButton = ({
               index: flatListIndex.value + 1,
             });
           } else {
+            router.push("/screens/sign-up");
             console.log("Signup Screen");
           }
         }}
@@ -87,6 +90,7 @@ const SplashButton = ({
               animated: true,
             });
           } else {
+            router.push("/screens/sing-in");
             console.log("Login Screen");
           }
         }}

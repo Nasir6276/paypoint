@@ -1,5 +1,7 @@
 import Pagination from "@/components/Pagination";
 import SplashButton from "@/components/SplashButton";
+import { SplashScreen } from "expo-router";
+import { useEffect } from "react";
 import {
   FlatList,
   SafeAreaView,
@@ -15,6 +17,7 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
 } from "react-native-reanimated";
+import { useAuth } from "../context/AuthContext";
 
 type TitlePart = {
   text: string;
@@ -28,7 +31,8 @@ type SplashItem = {
   img: any;
 };
 
-export default function Index() {
+export default function OnBoarding() {
+  const { authState } = useAuth();
   const { width: SCREEN_WIDTH } = useWindowDimensions();
   const flatListRef = useAnimatedRef<FlatList<any>>();
   // variable x is used to store contentOffset.x value when scrolling
@@ -103,6 +107,12 @@ export default function Index() {
         // transform: [{ translateY: translateYAnimation }],
       };
     });
+
+    useEffect(() => {
+      if (!authState) {
+        SplashScreen.hideAsync();
+      }
+    }, []);
 
     return (
       <View
@@ -192,7 +202,7 @@ const splashData = [
       { text: " Money Abroad", highlight: false },
     ],
     desc: "Send money and receive money from Nigeria to any other part of the world.",
-    img: require("../../../assets/images/splash1.png"),
+    img: require("../../assets/images/splash1.png"),
   },
   {
     id: 2,
@@ -201,7 +211,7 @@ const splashData = [
       { text: "Dollar Card", highlight: true },
     ],
     desc: "Send money and receive money from Nigeria to any other part of the world.",
-    img: require("../../../assets/images/splash2.png"),
+    img: require("../../assets/images/splash2.png"),
   },
   {
     id: 3,
@@ -211,6 +221,6 @@ const splashData = [
       { text: " to receive money", highlight: false },
     ],
     desc: "Send money and receive money from Nigeria to any other part of the world.",
-    img: require("../../../assets/images/splash3.png"),
+    img: require("../../assets/images/splash3.png"),
   },
 ];
