@@ -10,7 +10,6 @@ interface Authprops {
 }
 
 const TOKEN_KEY = "my_jwt";
-// export const API_URL = "https://api.developbetterapps.com";
 export const API_URL = "http://5000";
 const AuthContext = createContext<Authprops>({});
 
